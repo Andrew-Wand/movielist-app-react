@@ -8,7 +8,7 @@ function Header() {
         <div className="header-inner">
           <div className="header-content">
             <div className="header-title">
-              <h1>Movie Night</h1>
+              <h1>Movie Night!</h1>
             </div>
           </div>
         </div>
