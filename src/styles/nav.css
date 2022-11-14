@@ -23,6 +23,11 @@
   border-radius: 10px;
 }
 
+.active {
+  background-color: #000;
+  color: #fff;
+}
+
 @media (max-width: 767px) {
   .nav-content {
     padding: 20px;
