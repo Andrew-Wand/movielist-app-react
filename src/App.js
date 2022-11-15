@@ -2,7 +2,6 @@ import Header from "./components/Header";
 import RatingTable from "./components/RatingTable";
 import MovieList from "./components/MovieList";
 import Spin from "./components/Spin";
-import Nav from "./components/Nav";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -10,10 +9,20 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Nav />
+
         <Routes>
           <Route path="/" element={<RatingTable />} />
-          <Route path="/list" element={<MovieList />} />
+          <Route
+            path="/list"
+            element={
+              <MovieList
+                movies={[
+                  { id: 1, name: "Derp" },
+                  { id: 2, name: "Merp" },
+                ]}
+              />
+            }
+          />
           <Route path="/spin" element={<Spin />} />
         </Routes>
       </BrowserRouter>

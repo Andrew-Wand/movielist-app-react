@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/header.css";
+import Nav from "./Nav";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
             </div>
           </div>
         </div>
+        <Nav />
       </div>
     </header>
   );
