@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from "react";
 
+import MovieListModal from "./MovieListModal";
+
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = useState(config);
 
-  //
   const sortedItems = useMemo(() => {
     let sortedMovies = [...items];
 
@@ -45,22 +46,28 @@ const useSortableData = (items, config = null) => {
 
   return { items: sortedItems, requestSort, getClassNameFor };
 };
-
-// Movie List component //
+///////////////////////////////////////////////////////////////////////////////////
+// Movie List COMPONENT //
 
 function MovieList(props) {
   const { movies } = props;
 
-  const { items, requestSort, sortConfig, getClassNameFor } =
-    useSortableData(movies);
+  const [movieName, setMovieName] = useState("");
 
-  // Add btn modal
-
+  const [movieList, setMovieList] = useState(movies);
+  const { items, requestSort, getClassNameFor } = useSortableData(movieList);
   return (
     <div className="movielist-container">
       <div className="addbtn-container">
-        <button className="movie-addbtn">Add</button>
+        <button className="movielist-addbtn">Add</button>
       </div>
+      <MovieListModal
+        movies={items}
+        movieName={movieName}
+        movieList={movieList}
+        setMovieName={setMovieName}
+        setMovieList={setMovieList}
+      />
       <br />
       <div className="movielist-table">
         <table>
@@ -79,7 +86,7 @@ function MovieList(props) {
             </tr>
           </thead>
           <tbody>
-            {items.map((movie) => (
+            {movieList.map((movie) => (
               <tr key={movie.id}>
                 <td>{movie.name}</td>
               </tr>
