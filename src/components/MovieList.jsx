@@ -49,12 +49,11 @@ const useSortableData = (items, config = null) => {
 ///////////////////////////////////////////////////////////////////////////////////
 // Movie List COMPONENT //
 
-function MovieList(props) {
-  const { movies } = props;
+function MovieList({ movies, movieList, setMovieList }) {
+  // const { movies, movieList, setMovieList } = props;
 
   const [movieName, setMovieName] = useState("");
 
-  const [movieList, setMovieList] = useState(movies);
   const { items, requestSort, getClassNameFor } = useSortableData(movieList);
   return (
     <div className="movielist-container">
