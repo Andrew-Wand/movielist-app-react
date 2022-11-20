@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 function RatingTable({ movieList }) {
+  const ratingList = [{}];
+
   const [movieTitle, setMovieTitle] = useState("Select a movie");
+  const [date, setDate] = useState("");
 
   const [formTitle, setFormTitle] = useState([]);
 
@@ -9,12 +12,14 @@ function RatingTable({ movieList }) {
     setMovieTitle(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormTitle([{ title: movieTitle }]);
+  let handleDateChange = (e) => {
+    setDate(e.target.value);
   };
 
-  console.log(formTitle);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormTitle([{ title: movieTitle, date: date }]);
+  };
 
   return (
     <div className="rating-table-container">
@@ -32,10 +37,13 @@ function RatingTable({ movieList }) {
           <tbody>
             <tr>
               {formTitle.map((movie) => (
-                <td>{movie.title}</td>
+                <div>
+                  {" "}
+                  <td>{movie.title}</td>
+                  <td>{movie.date}</td>
+                </div>
               ))}
-              {/* <td>(Movie title) {movieTitle}</td> */}
-              <td>(Date Watched)</td>
+              {/* <td>(Date Watched)</td> */}
               <td>(Rating)</td>
             </tr>
           </tbody>
@@ -61,11 +69,11 @@ function RatingTable({ movieList }) {
                 ))}
               </select>
               <label htmlFor="date">Date:</label>
-              <input type="date" />
-              <input type="submit" value="Submit" />
+              <input type="date" onChange={handleDateChange} />
 
               <label htmlFor="rating">Rating:</label>
               <input type="text" />
+              <input type="submit" value="Submit" />
             </form>
           </div>
         </div>
