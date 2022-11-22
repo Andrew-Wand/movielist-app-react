@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 function RatingTable({ movieList }) {
-  const ratingList = [{}];
+  // const localWatched = localStorage.getItem("watchedMovies")
+  //   ? JSON.parse(localStorage.getItem("watchedMovies"))
+  //   : [];
+
+  const [watchedMovies, setWatchedMovies] = useState([]);
 
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
@@ -16,9 +20,19 @@ function RatingTable({ movieList }) {
     setDate(e.target.value);
   };
 
+  const addWatchedMovie = (watchedMovie) => {
+    setWatchedMovies([watchedMovie, ...watchedMovies]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormTitle([{ title: movieTitle, date: date }]);
+
+    const movie = {
+      title: movieTitle,
+      date: date,
+      // rating: rating
+    };
+    addWatchedMovie(movie);
   };
 
   return (
@@ -36,14 +50,12 @@ function RatingTable({ movieList }) {
 
           <tbody>
             <tr>
-              {formTitle.map((movie) => (
+              {watchedMovies.map((movie) => (
                 <div>
-                  {" "}
                   <td>{movie.title}</td>
                   <td>{movie.date}</td>
                 </div>
               ))}
-              {/* <td>(Date Watched)</td> */}
               <td>(Rating)</td>
             </tr>
           </tbody>
