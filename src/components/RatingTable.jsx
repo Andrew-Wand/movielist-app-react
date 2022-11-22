@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function RatingTable({ movieList }) {
-  const [watchedMovies, setWatchedMovies] = useState([]);
+  const localMovie = localStorage.getItem("watchedMovies")
+    ? JSON.parse(localStorage.getItem("watchedMovies"))
+    : [];
+
+  const [watchedMovies, setWatchedMovies] = useState(localMovie);
+
+  useEffect(() => {
+    const json = JSON.stringify(watchedMovies);
+    window.localStorage.setItem("watchedMovies", json);
+  }, [watchedMovies]);
 
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
