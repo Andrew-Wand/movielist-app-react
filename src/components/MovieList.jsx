@@ -52,15 +52,6 @@ const useSortableData = (items, config = null) => {
 function MovieList({ movies, movieList, setMovieList }) {
   // const { movies, movieList, setMovieList } = props;
 
-  useEffect(() => {
-    const json = JSON.stringify(movieList);
-    window.localStorage.setItem("movieList", json);
-  }, [movieList]);
-
-  const localMovie = localStorage.getItem("movieList")
-    ? JSON.parse(localStorage.getItem("movieList"))
-    : [];
-
   const [movieName, setMovieName] = useState("");
 
   const { items, requestSort, getClassNameFor } = useSortableData(movieList);
