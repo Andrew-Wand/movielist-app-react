@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 function MovieListModal({
   movies,
   movieName,

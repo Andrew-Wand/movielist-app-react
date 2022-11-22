@@ -1,15 +1,12 @@
 import { useState } from "react";
 
 function RatingTable({ movieList }) {
-  // const localWatched = localStorage.getItem("watchedMovies")
-  //   ? JSON.parse(localStorage.getItem("watchedMovies"))
-  //   : [];
-
   const [watchedMovies, setWatchedMovies] = useState([]);
 
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
   const [rating, setRating] = useState();
+  const [finished, setFinished] = useState(false);
 
   let handleMovieChange = (e) => {
     setMovieTitle(e.target.value);
@@ -23,6 +20,10 @@ function RatingTable({ movieList }) {
     setRating(e.target.value);
   };
 
+  let handleFinishedChange = (e) => {
+    setFinished(e.target.checked);
+  };
+
   const addWatchedMovie = (watchedMovie) => {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
@@ -34,6 +35,7 @@ function RatingTable({ movieList }) {
       title: movieTitle,
       date: date,
       rating: rating,
+      finished: finished,
     };
     addWatchedMovie(movie);
   };
@@ -48,6 +50,7 @@ function RatingTable({ movieList }) {
               <th>Movie Title </th>
               <th>Date Watched</th>
               <th>Rating</th>
+              <th>Finished</th>
             </tr>
           </thead>
 
@@ -57,6 +60,7 @@ function RatingTable({ movieList }) {
                 <td>{movie.title}</td>
                 <td>{movie.date}</td>
                 <td>{movie.rating}</td>
+                <td>{movie.finished.toString()}</td>
               </tr>
             ))}
           </tbody>
@@ -98,6 +102,8 @@ function RatingTable({ movieList }) {
                 <option value="2">(2) Horrible</option>
                 <option value="1">(1) Appalling</option>
               </select>
+              <label htmlFor="finished">Finished</label>
+              <input type="checkbox" onChange={handleFinishedChange} />
               <input type="submit" value="Submit" />
             </form>
           </div>
