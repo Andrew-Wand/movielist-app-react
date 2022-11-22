@@ -9,8 +9,7 @@ function RatingTable({ movieList }) {
 
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
-
-  const [formTitle, setFormTitle] = useState([]);
+  const [rating, setRating] = useState();
 
   let handleMovieChange = (e) => {
     setMovieTitle(e.target.value);
@@ -18,6 +17,10 @@ function RatingTable({ movieList }) {
 
   let handleDateChange = (e) => {
     setDate(e.target.value);
+  };
+
+  let handleRatingChange = (e) => {
+    setRating(e.target.value);
   };
 
   const addWatchedMovie = (watchedMovie) => {
@@ -30,7 +33,7 @@ function RatingTable({ movieList }) {
     const movie = {
       title: movieTitle,
       date: date,
-      // rating: rating
+      rating: rating,
     };
     addWatchedMovie(movie);
   };
@@ -49,15 +52,13 @@ function RatingTable({ movieList }) {
           </thead>
 
           <tbody>
-            <tr>
-              {watchedMovies.map((movie) => (
-                <div>
-                  <td>{movie.title}</td>
-                  <td>{movie.date}</td>
-                </div>
-              ))}
-              <td>(Rating)</td>
-            </tr>
+            {watchedMovies.map((movie, index) => (
+              <tr key={index}>
+                <td>{movie.title}</td>
+                <td>{movie.date}</td>
+                <td>{movie.rating}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -84,7 +85,19 @@ function RatingTable({ movieList }) {
               <input type="date" onChange={handleDateChange} />
 
               <label htmlFor="rating">Rating:</label>
-              <input type="text" />
+              <select name="rating" id="rating" onChange={handleRatingChange}>
+                <option value="">Select rating</option>
+                <option value="10">(10) Masterpiece</option>
+                <option value="9">(9) Great</option>
+                <option value="8">(8) Very Good</option>
+                <option value="7">(7) Good</option>
+                <option value="6">(6) Fine</option>
+                <option value="5">(5) Average</option>
+                <option value="4">(4) Bad</option>
+                <option value="3">(3) Very Bad</option>
+                <option value="2">(2) Horrible</option>
+                <option value="1">(1) Appalling</option>
+              </select>
               <input type="submit" value="Submit" />
             </form>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 import MovieListModal from "./MovieListModal";
 
@@ -51,6 +51,15 @@ const useSortableData = (items, config = null) => {
 
 function MovieList({ movies, movieList, setMovieList }) {
   // const { movies, movieList, setMovieList } = props;
+
+  useEffect(() => {
+    const json = JSON.stringify(movieList);
+    window.localStorage.setItem("movieList", json);
+  }, [movieList]);
+
+  const localMovie = localStorage.getItem("movieList")
+    ? JSON.parse(localStorage.getItem("movieList"))
+    : [];
 
   const [movieName, setMovieName] = useState("");
 
