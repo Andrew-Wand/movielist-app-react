@@ -43,33 +43,6 @@ function Nav() {
               </li>
             </Link>
           ))}
-
-          {/* <Link to={"/"}>
-            <li
-              className={activeTab ? "nav-link" : "nav-link active"}
-              onClick={handleClick}
-            >
-              Ratings
-            </li>
-          </Link>
-
-          <Link to={"/list"}>
-            <li
-              className={activeTab ? "nav-link active" : "nav-link"}
-              onClick={handleClick}
-            >
-              List
-            </li>
-          </Link>
-
-          <Link to={"/spin"}>
-            <li
-              className={activeTab ? "nav-link active" : "nav-link"}
-              onClick={handleClick}
-            >
-              Spin
-            </li>
-          </Link> */}
         </div>
       </div>
     </nav>
