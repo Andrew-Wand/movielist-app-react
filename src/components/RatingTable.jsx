@@ -47,11 +47,19 @@ function RatingTable({ movieList }) {
       finished: finished,
     };
     addWatchedMovie(movie);
+    e.target.reset();
   };
+
+  // MODAL
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   return (
     <div className="rating-table-container">
       <div className="rating-table">
+        <button onClick={handleShow}>Add</button>
         <table>
           <caption>Movie Night</caption>
           <thead>
@@ -76,7 +84,10 @@ function RatingTable({ movieList }) {
         </table>
       </div>
 
-      <div className="rating-modal-container">
+      <div
+        className="rating-modal-container"
+        style={{ opacity: show ? "1" : "0", display: show ? "block" : "none" }}
+      >
         <div className="rating-modal-header">
           <div className="rating-title">
             <h2>Add your movie</h2>
@@ -119,7 +130,7 @@ function RatingTable({ movieList }) {
         </div>
 
         <div className="rating-modal-footer">
-          <button>Close</button>
+          <button onClick={handleClose}>Close</button>
         </div>
       </div>
     </div>

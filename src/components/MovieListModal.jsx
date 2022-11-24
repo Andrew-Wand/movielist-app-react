@@ -4,12 +4,15 @@ function MovieListModal({
   movieList,
   setMovieName,
   setMovieList,
+  setShow,
+  show,
 }) {
   // Handle submit for new movie
   const handleSubmit = (e) => {
     e.preventDefault();
     setMovieList((current) => [...current, movieName]);
     e.target.reset();
+    handleClose();
   };
 
   // Create New Id for each added to array
@@ -27,8 +30,13 @@ function MovieListModal({
     });
   };
 
+  const handleClose = () => setShow(false);
+
   return (
-    <div className="modal-container">
+    <div
+      className="modal-container"
+      style={{ opacity: show ? "1" : "0", display: show ? "block" : "none" }}
+    >
       <div className="modal-content">
         <div className="modal-header">
           <h4 className="modal-title">Modal</h4>
@@ -43,7 +51,7 @@ function MovieListModal({
           </div>
         </div>
         <div className="modal-footer">
-          <button>Close</button>
+          <button onClick={handleClose}>Close</button>
         </div>
       </div>
     </div>
