@@ -57,6 +57,12 @@ function MovieList({ movies, movieList, setMovieList }) {
   const handleShow = () => setShow(true);
 
   const { items, requestSort, getClassNameFor } = useSortableData(movieList);
+
+  const deleteMovie = (id) => {
+    const remainingMovies = movieList.filter((movie) => id !== movie.id);
+    window.localStorage.setItem("movieList", JSON.stringify(remainingMovies));
+    setMovieList(remainingMovies);
+  };
   return (
     <div className="movielist-container">
       <div className="addbtn-container">
@@ -94,6 +100,9 @@ function MovieList({ movies, movieList, setMovieList }) {
             {movieList.map((movie) => (
               <tr key={movie.id}>
                 <td>{movie.name}</td>
+                <td>
+                  <button onClick={() => deleteMovie(movie.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

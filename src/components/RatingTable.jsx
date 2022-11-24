@@ -47,6 +47,7 @@ function RatingTable({ movieList }) {
       finished: finished,
     };
     addWatchedMovie(movie);
+    handleClose();
     e.target.reset();
   };
 
