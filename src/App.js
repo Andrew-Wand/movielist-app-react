@@ -6,6 +6,9 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 function App() {
+  // spin the wheel
+
+  // Data for movie movie list page
   const movies = [
     { id: 1, name: "Derp" },
     { id: 2, name: "Merp" },

@@ -63,6 +63,7 @@ function MovieList({ movies, movieList, setMovieList }) {
     window.localStorage.setItem("movieList", JSON.stringify(remainingMovies));
     setMovieList(remainingMovies);
   };
+
   return (
     <div className="movielist-container">
       <div className="addbtn-container">

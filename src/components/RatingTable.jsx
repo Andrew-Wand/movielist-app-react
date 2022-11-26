@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function RatingTable({ movieList }) {
   const localMovie = localStorage.getItem("watchedMovies")
@@ -37,10 +38,21 @@ function RatingTable({ movieList }) {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
+  // Create New Id for each added to array
+  // let lastId = Math.max.apply(
+  //   null,
+  //   watchedMovies.map((item) => item.id)
+  // );
+
+  // let newId = lastId + 1;
+
+  const uuid = require("uuid");
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const movie = {
+      id: uuid.v4(),
       title: movieTitle,
       date: date,
       rating: rating,
@@ -49,6 +61,16 @@ function RatingTable({ movieList }) {
     addWatchedMovie(movie);
     handleClose();
     e.target.reset();
+  };
+
+  // Delete movie from list
+  const handleDelete = (id) => {
+    const remainingMovies = watchedMovies.filter((movie) => movie.id !== id);
+    window.localStorage.setItem(
+      "watchedMovies",
+      JSON.stringify(remainingMovies)
+    );
+    setWatchedMovies(remainingMovies);
   };
 
   // MODAL
@@ -73,12 +95,15 @@ function RatingTable({ movieList }) {
           </thead>
 
           <tbody>
-            {watchedMovies.map((movie, index) => (
-              <tr key={index}>
+            {watchedMovies.map((movie) => (
+              <tr key={movie.id}>
                 <td>{movie.title}</td>
                 <td>{movie.date}</td>
                 <td>{movie.rating}</td>
                 <td>{movie.finished.toString()}</td>
+                <td>
+                  <button onClick={() => handleDelete(movie.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
