@@ -41,7 +41,7 @@ function App() {
               />
             }
           />
-          <Route path="/spin" element={<Spin />} />
+          <Route path="/spin" element={<Spin movieList={movieList} />} />
         </Routes>
       </BrowserRouter>
     </div>
