@@ -31,9 +31,8 @@ function Nav() {
       <div className="nav-container">
         <div className="nav-content">
           {lists.map((list) => (
-            <Link to={list.toLink}>
+            <Link to={list.toLink} key={list.id}>
               <li
-                key={list.id}
                 onClick={() => handleClick(list)}
                 className={
                   list.id === activeTab ? "nav-link active" : "nav-link"

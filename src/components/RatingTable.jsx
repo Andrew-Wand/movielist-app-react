@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
-
 function RatingTable({ movieList }) {
   const localMovie = localStorage.getItem("watchedMovies")
     ? JSON.parse(localStorage.getItem("watchedMovies"))
@@ -37,14 +35,6 @@ function RatingTable({ movieList }) {
   const addWatchedMovie = (watchedMovie) => {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
-
-  // Create New Id for each added to array
-  // let lastId = Math.max.apply(
-  //   null,
-  //   watchedMovies.map((item) => item.id)
-  // );
-
-  // let newId = lastId + 1;
 
   const uuid = require("uuid");
 

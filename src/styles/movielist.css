@@ -1,0 +1,47 @@
+@media (max-width: 767px) {
+  .movielist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movielist-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #000;
+    width: 75%;
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .movielist-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .movielist-data,
+  .movielist-head {
+    padding: 20px 40px;
+    border-top: 1px solid #000;
+  }
+
+  .movielist-head {
+    border-top: none;
+    background-color: blue;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 20px;
+  }
+
+  .movielist-data {
+  }
+}

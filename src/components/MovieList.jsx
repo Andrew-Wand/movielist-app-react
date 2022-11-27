@@ -1,53 +1,6 @@
-import React, { useState, useMemo } from "react";
-
+import React, { useState } from "react";
 import MovieListModal from "./MovieListModal";
-
-const useSortableData = (items, config = null) => {
-  const [sortConfig, setSortConfig] = useState(config);
-
-  const sortedItems = useMemo(() => {
-    let sortedMovies = [...items];
-
-    if (sortConfig !== null) {
-      sortedMovies.sort((a, b) => {
-        if (a[sortConfig.key] < b[sortConfig.key]) {
-          return sortConfig.direction === "ascending" ? -1 : 1;
-        }
-
-        if (a[sortConfig.key] > b[sortConfig.key]) {
-          return sortConfig.direction === "ascending" ? 1 : -1;
-        }
-        return 0;
-      });
-    }
-    return sortedMovies;
-  }, [items, sortConfig]);
-
-  // Onclick for sorting
-  const requestSort = (key) => {
-    let direction = "ascending";
-    if (
-      sortConfig &&
-      sortConfig.key === key &&
-      sortConfig.direction === "ascending"
-    ) {
-      direction = "descending";
-    }
-    setSortConfig({ key, direction });
-  };
-
-  //  Make class name for btn
-  const getClassNameFor = (name) => {
-    if (!sortConfig) {
-      return;
-    }
-    return sortConfig.key === name ? sortConfig.direction : undefined;
-  };
-
-  return { items: sortedItems, requestSort, getClassNameFor };
-};
-///////////////////////////////////////////////////////////////////////////////////
-// Movie List COMPONENT //
+import "../styles/movielist.css";
 
 function MovieList({ movies, movieList, setMovieList }) {
   const [movieName, setMovieName] = useState("");
@@ -56,7 +9,7 @@ function MovieList({ movies, movieList, setMovieList }) {
 
   const handleShow = () => setShow(true);
 
-  const { items, requestSort, getClassNameFor } = useSortableData(movieList);
+  // const { items, requestSort, getClassNameFor } = useSortableData(movieList);
 
   const deleteMovie = (id) => {
     const remainingMovies = movieList.filter((movie) => id !== movie.id);
@@ -72,7 +25,7 @@ function MovieList({ movies, movieList, setMovieList }) {
         </button>
       </div>
       <MovieListModal
-        movies={items}
+        movies={movies}
         movieName={movieName}
         movieList={movieList}
         setMovieName={setMovieName}
@@ -83,25 +36,17 @@ function MovieList({ movies, movieList, setMovieList }) {
       <br />
       <div className="movielist-table">
         <table>
-          <caption>Movies</caption>
           <thead>
             <tr>
-              <th>
-                <button
-                  type="button"
-                  className={getClassNameFor("name")}
-                  onClick={() => requestSort("name")}
-                >
-                  Name
-                </button>
-              </th>
+              <th className="movielist-head">Movies</th>
             </tr>
           </thead>
+
           <tbody>
             {movieList.map((movie) => (
               <tr key={movie.id}>
-                <td>{movie.name}</td>
-                <td>
+                <td className="movielist-data">
+                  {movie.name}{" "}
                   <button onClick={() => deleteMovie(movie.id)}>Delete</button>
                 </td>
               </tr>
