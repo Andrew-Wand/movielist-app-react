@@ -76,7 +76,7 @@ tr:nth-child(odd) :not(.movielist-head) {
   }
 
   .delete-btn {
-    font-size: 20px;
+    font-size: 24px;
     background: transparent;
     border: none;
     color: rgba(0, 0, 0, 0.8);
