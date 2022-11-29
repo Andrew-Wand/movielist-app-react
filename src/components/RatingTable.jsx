@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 function RatingTable({ movieList }) {
   const localMovie = localStorage.getItem("watchedMovies")
     ? JSON.parse(localStorage.getItem("watchedMovies"))
