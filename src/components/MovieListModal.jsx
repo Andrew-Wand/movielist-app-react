@@ -1,3 +1,5 @@
+import "../styles/movielistmodal.css";
+
 function MovieListModal({
   movies,
   movieName,
@@ -15,17 +17,19 @@ function MovieListModal({
     handleClose();
   };
 
-  // Create New Id for each added to array
-  let lastId = Math.max.apply(
-    null,
-    movieList.map((item) => item.id)
-  );
+  // // Create New Id for each added to array
+  // let lastId = Math.max.apply(
+  //   null,
+  //   movieList.map((item) => item.id)
+  // );
 
-  let newId = lastId + 1;
+  // let newId = lastId + 1;
+
+  const uuid = require("uuid");
 
   const handleChange = (e) => {
     setMovieName({
-      id: newId,
+      id: uuid.v4(),
       name: e.target.value,
     });
   };
@@ -39,13 +43,16 @@ function MovieListModal({
     >
       <div className="modal-content">
         <div className="modal-header">
-          <h4 className="modal-title">Modal</h4>
+          <h4 className="modal-title">Add Movie</h4>
         </div>
         <div className="modal-body">
           <div className="modal-form">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="">Movie:</label>
-              <input type="text" onChange={handleChange} />
+              <input
+                type="text"
+                placeholder="Type your movie here..."
+                onChange={handleChange}
+              />
               <input type="submit" value="Submit" />
             </form>
           </div>

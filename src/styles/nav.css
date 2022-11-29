@@ -10,17 +10,6 @@
 }
 
 .nav-link {
-  background-color: #fff;
-  border: 1px solid #000;
-  line-height: 1.7em;
-  font-size: 20px;
-  height: 40px;
-  width: 100px;
-  text-align: center;
-  color: #000;
-  text-decoration: none;
-  margin: 0 10px;
-  border-radius: 10px;
 }
 
 .active {
@@ -34,8 +23,25 @@
   }
 
   .nav-link {
-    /* padding: 10px 40px; */
-    height: 40px;
-    width: 100px;
+    position: relative;
+    background-color: #8eb0c0;
+    border: 2px solid #2e9bcd;
+    line-height: 1.9em;
+    font-size: 22px;
+    height: 45px;
+    width: 120px;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    margin: 0 10px;
+    border-radius: 10px;
+    z-index: 999;
+    font-family: "Staatliches", sans-serif;
+  }
+
+  .active {
+    background-color: #388cb3;
+    color: #000;
+    transition: background-color 0.6s;
   }
 }

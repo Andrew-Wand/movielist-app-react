@@ -3,7 +3,7 @@ import MovieListModal from "./MovieListModal";
 import "../styles/movielist.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/fontawesome-free-solid";
+import { faTrashAlt, faPlusCircle } from "@fortawesome/fontawesome-free-solid";
 
 function MovieList({ movies, movieList, setMovieList }) {
   const [movieName, setMovieName] = useState("");
@@ -24,7 +24,7 @@ function MovieList({ movies, movieList, setMovieList }) {
     <div className="movielist-container">
       <div className="addbtn-container">
         <button className="movielist-addbtn" onClick={handleShow}>
-          Add
+          <FontAwesomeIcon icon={faPlusCircle} />
         </button>
       </div>
       <MovieListModal
@@ -50,7 +50,6 @@ function MovieList({ movies, movieList, setMovieList }) {
               <tr key={movie.id}>
                 <td className="movielist-data">
                   <h3>{movie.name}</h3>
-
                   <button
                     className="delete-btn"
                     onClick={() => deleteMovie(movie.id)}

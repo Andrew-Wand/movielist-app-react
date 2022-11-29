@@ -98,6 +98,26 @@ tr:nth-child(odd) :not(.movielist-head) {
     font-size: 48px;
   }
 
-  .movielist-data {
+  .movielist-data h3::before {
+    content: "";
+    margin-right: 20px;
+    -moz-border-radius: 7.5px;
+    -webkit-border-radius: 7.5px;
+    border-radius: 7.5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+  }
+
+  .movielist-addbtn {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    font-size: 60px;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
   }
 }
