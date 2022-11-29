@@ -21,20 +21,25 @@ function Spin({ movieList }) {
   };
 
   return (
-    <div className="wheel-container">
-      <WheelComponent
-        segments={segments}
-        segColors={segColors}
-        onFinished={(winner) => onFinished(winner)}
-        primaryColor="black"
-        contrastColor="white"
-        buttonText="Spin"
-        isOnlyOnce={false}
-        size={290}
-        upDuration={100}
-        downDuration={1000}
-        fontFamily="Arial"
-      />
+    <div className="wheel-wrapper">
+      <div className="wheel-text">
+        <h3>Spin the Wheel!</h3>
+      </div>
+      <div className="wheel-container">
+        <WheelComponent
+          segments={segments}
+          segColors={segColors}
+          onFinished={(winner) => onFinished(winner)}
+          primaryColor="#388cb3"
+          contrastColor="#0e141b"
+          buttonText="Spin"
+          isOnlyOnce={false}
+          size={290}
+          upDuration={100}
+          downDuration={1000}
+          fontFamily="Staatliches"
+        />
+      </div>
     </div>
   );
 }

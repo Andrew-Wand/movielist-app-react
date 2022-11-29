@@ -1,0 +1,22 @@
+@media (max-width: 767px) {
+  body {
+    overflow: hidden;
+  }
+  .wheel-container {
+  }
+  .wheel-container canvas {
+    height: 520px;
+    width: 715px;
+    font-size: 22px;
+    margin-top: 75px;
+    color: #fff;
+  }
+
+  .wheel-text {
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    font-family: "Staatliches", sans-serif;
+  }
+}

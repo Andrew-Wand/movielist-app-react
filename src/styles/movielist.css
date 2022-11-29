@@ -44,7 +44,7 @@ table {
 }
 
 .movielist-head {
-  background-color: #323232;
+  background-color: #182635;
   font-size: 30px;
   /* text-decoration: underline; */
   font-family: "Staatliches", sans-serif;
@@ -117,7 +117,7 @@ tr:nth-child(odd) :not(.movielist-head) {
     font-size: 60px;
     background: transparent;
     border: none;
-    color: #000;
+    color: #27496d;
     cursor: pointer;
   }
 }

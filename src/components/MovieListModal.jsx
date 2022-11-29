@@ -1,4 +1,6 @@
 import "../styles/movielistmodal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/fontawesome-free-solid";
 
 function MovieListModal({
   movies,
@@ -58,7 +60,9 @@ function MovieListModal({
           </div>
         </div>
         <div className="modal-footer">
-          <button onClick={handleClose}>Close</button>
+          <button onClick={handleClose}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       </div>
     </div>

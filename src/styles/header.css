@@ -1,5 +1,5 @@
 header {
-  background-color: #323232;
+  background-color: #182635;
   height: 150px;
 }
 
@@ -12,7 +12,7 @@ header {
   font-family: "Dancing Script", sans-serif;
   text-decoration: underline;
   font-size: 72px;
-  color: #5c82aa;
+  color: #f6f6f6;
 }
 
 @media (max-width: 767px) {
@@ -25,16 +25,17 @@ header {
     margin-bottom: 2px;
     position: relative;
     z-index: 2;
+    word-spacing: 45px;
   }
 
   .header-icon {
     position: absolute;
-    font-size: 80px;
-    right: 3%;
-    top: 50%;
-    color: rgba(210, 210, 210, 0.5);
-    transform: rotate(25deg);
+    /* transform: rotate(25deg); */
     z-index: 1;
+    font-size: 60px;
+    right: 44%;
+    top: 15%;
+    color: #388cb3;
   }
 
   .header-content {
