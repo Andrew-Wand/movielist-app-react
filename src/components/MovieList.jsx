@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import MovieListModal from "./MovieListModal";
 import "../styles/movielist.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/fontawesome-free-solid";
+
 function MovieList({ movies, movieList, setMovieList }) {
   const [movieName, setMovieName] = useState("");
 
@@ -38,7 +41,7 @@ function MovieList({ movies, movieList, setMovieList }) {
         <table>
           <thead>
             <tr>
-              <th className="movielist-head">Movies</th>
+              <th className="movielist-head">Movie List</th>
             </tr>
           </thead>
 
@@ -46,8 +49,14 @@ function MovieList({ movies, movieList, setMovieList }) {
             {movieList.map((movie) => (
               <tr key={movie.id}>
                 <td className="movielist-data">
-                  {movie.name}{" "}
-                  <button onClick={() => deleteMovie(movie.id)}>Delete</button>
+                  <h3>{movie.name}</h3>
+
+                  <button
+                    className="delete-btn"
+                    onClick={() => deleteMovie(movie.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrashAlt} />
+                  </button>
                 </td>
               </tr>
             ))}

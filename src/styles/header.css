@@ -1,20 +1,42 @@
 header {
-  background-color: #2d2d2d;
+  background-color: #323232;
   height: 150px;
 }
 
 .header-content {
   text-align: center;
+  position: relative;
 }
 
 .header-title h1 {
   font-family: "Dancing Script", sans-serif;
   text-decoration: underline;
   font-size: 72px;
+  color: #1ec5cb;
 }
 
 @media (max-width: 767px) {
+  header {
+    height: 200px;
+  }
+
   .header-title h1 {
-    font-size: 52px;
+    font-size: 74px;
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header-icon {
+    position: absolute;
+    font-size: 80px;
+    right: 3%;
+    top: 20%;
+    color: rgba(210, 210, 210, 0.5);
+    transform: rotate(25deg);
+    z-index: 1;
+  }
+
+  .header-content {
   }
 }
