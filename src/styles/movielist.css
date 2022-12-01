@@ -65,6 +65,7 @@ tr:nth-child(odd) :not(.movielist-head) {
     width: 85%;
     margin: 20px 0;
     overflow: hidden;
+    flex-direction: column;
   }
 
   table {

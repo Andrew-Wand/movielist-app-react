@@ -5,14 +5,23 @@ import "../styles/movielist.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faPlus } from "@fortawesome/fontawesome-free-solid";
 
-function MovieList({ movies, movieList, setMovieList }) {
+// Table pagination stuff
+import useTable from "../hooks/useTable";
+import styles from "../styles/TableFooter.module.css";
+import TableFooter from "./TableFooter";
+
+function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
   const [movieName, setMovieName] = useState("");
 
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
 
-  // const { items, requestSort, getClassNameFor } = useSortableData(movieList);
+  // Table pagination
+  const [page, setPage] = useState(1);
+  const { slice, range } = useTable(movieList, page, rowsPerPage);
+
+  //
 
   const deleteMovie = (id) => {
     const remainingMovies = movieList.filter((movie) => id !== movie.id);
@@ -36,7 +45,8 @@ function MovieList({ movies, movieList, setMovieList }) {
         show={show}
         setShow={setShow}
       />
-      <br />
+
+      {/* Table for movies */}
       <div className="movielist-table">
         <table>
           <thead>
@@ -46,7 +56,7 @@ function MovieList({ movies, movieList, setMovieList }) {
           </thead>
 
           <tbody>
-            {movieList.map((movie) => (
+            {slice.map((movie) => (
               <tr key={movie.id}>
                 <td className="movielist-data">
                   <h3>{movie.name}</h3>
@@ -61,6 +71,12 @@ function MovieList({ movies, movieList, setMovieList }) {
             ))}
           </tbody>
         </table>
+        <TableFooter
+          range={range}
+          slice={slice}
+          setPage={setPage}
+          page={page}
+        />
       </div>
     </div>
   );
