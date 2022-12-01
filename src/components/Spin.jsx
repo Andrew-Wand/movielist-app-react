@@ -14,6 +14,11 @@ function Spin({ movieList }) {
     "#F9AA1F",
     "#EC3F3F",
     "#FF9000",
+    "#78B0A0",
+    "#81B214",
+    "#A64452",
+    "#6A097D",
+    "#295F4E",
   ];
 
   const onFinished = (winner) => {

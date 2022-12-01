@@ -1,15 +1,13 @@
 @media (max-width: 767px) {
-  body {
-    overflow: hidden;
-  }
   .wheel-container {
   }
   .wheel-container canvas {
-    height: 520px;
-    width: 715px;
+    height: 200%;
+    width: 160%;
     font-size: 22px;
     margin-top: 75px;
     color: #fff;
+    margin-left: 10px;
   }
 
   .wheel-text {

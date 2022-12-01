@@ -41,3 +41,13 @@ header {
   .header-content {
   }
 }
+
+@media (max-width: 390px) {
+  .header-title h1 {
+    font-size: 4em;
+  }
+
+  .header-icon {
+    font-size: 54px;
+  }
+}
