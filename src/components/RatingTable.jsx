@@ -1,5 +1,15 @@
 import { useState, useEffect } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrashAlt,
+  faPlus,
+  faTimes,
+} from "@fortawesome/fontawesome-free-solid";
+
+import "../styles/ratingtable.css";
+import "../styles/ratingtablemodal.css";
+
 function RatingTable({ movieList }) {
   const localMovie = localStorage.getItem("watchedMovies")
     ? JSON.parse(localStorage.getItem("watchedMovies"))
@@ -29,9 +39,9 @@ function RatingTable({ movieList }) {
     setRating(e.target.value);
   };
 
-  let handleFinishedChange = (e) => {
-    setFinished(e.target.checked);
-  };
+  // let handleFinishedChange = (e) => {
+  //   setFinished(e.target.checked);
+  // };
 
   const addWatchedMovie = (watchedMovie) => {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
@@ -73,27 +83,35 @@ function RatingTable({ movieList }) {
   return (
     <div className="rating-table-container">
       <div className="rating-table">
-        <button onClick={handleShow}>Add</button>
+        <button className="ratingtable-btn" onClick={handleShow}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
         <table>
-          <caption>Movie Night</caption>
+          {/* <caption className="ratinglist-head">Movie Night</caption> */}
           <thead>
             <tr>
-              <th>Movie Title </th>
-              <th>Date Watched</th>
-              <th>Rating</th>
-              <th>Finished</th>
+              <th className="ratingtable-header">Movie Title </th>
+              <th className="ratingtable-header">Date Watched</th>
+              <th className="ratingtable-header">Rating</th>
+              {/* <th className="ratingtable-header">Finished</th> */}
+              <th className="ratingtable-header"></th>
             </tr>
           </thead>
 
           <tbody>
             {watchedMovies.map((movie) => (
               <tr key={movie.id}>
-                <td>{movie.title}</td>
-                <td>{movie.date}</td>
-                <td>{movie.rating}</td>
-                <td>{movie.finished.toString()}</td>
-                <td>
-                  <button onClick={() => handleDelete(movie.id)}>Delete</button>
+                <td className="ratinglist-data">{movie.title}</td>
+                <td className="ratinglist-data">{movie.date}</td>
+                <td className="ratinglist-data">{movie.rating}</td>
+                {/* <td className="ratinglist-data">{movie.finished.toString()}</td> */}
+                <td className="ratinglist-data">
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(movie.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrashAlt} />
+                  </button>
                 </td>
               </tr>
             ))}
@@ -101,53 +119,58 @@ function RatingTable({ movieList }) {
         </table>
       </div>
 
+      {/* Rating table modal */}
       <div
         className="rating-modal-container"
         style={{ opacity: show ? "1" : "0", display: show ? "block" : "none" }}
       >
-        <div className="rating-modal-header">
-          <div className="rating-title">
-            <h2>Add your movie</h2>
-          </div>
-        </div>
         <div className="rating-modal-content">
-          <div className="modal-form">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="movies">Choose a movie:</label>
-              <select name="movies" id="movies" onChange={handleMovieChange}>
-                <option value="">Select a movie</option>
-                {movieList.map((movie) => (
-                  <option key={movie.name} value={movie.name}>
-                    {movie.name}
-                  </option>
-                ))}
-              </select>
-              <label htmlFor="date">Date:</label>
-              <input type="date" onChange={handleDateChange} />
-
-              <label htmlFor="rating">Rating:</label>
-              <select name="rating" id="rating" onChange={handleRatingChange}>
-                <option value="">Select rating</option>
-                <option value="10">(10) Masterpiece</option>
-                <option value="9">(9) Great</option>
-                <option value="8">(8) Very Good</option>
-                <option value="7">(7) Good</option>
-                <option value="6">(6) Fine</option>
-                <option value="5">(5) Average</option>
-                <option value="4">(4) Bad</option>
-                <option value="3">(3) Very Bad</option>
-                <option value="2">(2) Horrible</option>
-                <option value="1">(1) Appalling</option>
-              </select>
-              <label htmlFor="finished">Finished</label>
-              <input type="checkbox" onChange={handleFinishedChange} />
-              <input type="submit" value="Submit" />
-            </form>
+          <div className="rating-modal-header">
+            <div className="rating-title">
+              <h2>Add your movie</h2>
+            </div>
           </div>
-        </div>
 
-        <div className="rating-modal-footer">
-          <button onClick={handleClose}>Close</button>
+          <div className="rating-modal-body">
+            <div className="rating-modal-form">
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="movies">Choose a movie:</label>
+                <select name="movies" id="movies" onChange={handleMovieChange}>
+                  <option value="">Select a movie</option>
+                  {movieList.map((movie) => (
+                    <option key={movie.name} value={movie.name}>
+                      {movie.name}
+                    </option>
+                  ))}
+                </select>
+                <label htmlFor="date">Date:</label>
+                <input type="date" onChange={handleDateChange} />
+
+                <label htmlFor="rating">Rating:</label>
+                <select name="rating" id="rating" onChange={handleRatingChange}>
+                  <option value="">Select rating</option>
+                  <option value="10">(10) Masterpiece</option>
+                  <option value="9">(9) Great</option>
+                  <option value="8">(8) Very Good</option>
+                  <option value="7">(7) Good</option>
+                  <option value="6">(6) Fine</option>
+                  <option value="5">(5) Average</option>
+                  <option value="4">(4) Bad</option>
+                  <option value="3">(3) Very Bad</option>
+                  <option value="2">(2) Horrible</option>
+                  <option value="1">(1) Appalling</option>
+                </select>
+                {/* <label htmlFor="finished">Finished</label> */}
+                {/* <input type="checkbox" onChange={handleFinishedChange} /> */}
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
+          </div>
+          <div className="rating-modal-footer">
+            <button onClick={handleClose}>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
         </div>
       </div>
     </div>

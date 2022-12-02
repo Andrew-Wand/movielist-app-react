@@ -1,0 +1,106 @@
+.rating-table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-table {
+  display: flex;
+  width: 90%;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.ratinglist-head {
+  background-color: #182635;
+  font-size: 30px;
+  font-family: "Staatliches", sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  color: #a6d0e4;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+.ratinglist-data,
+.ratingtable-header {
+  font-family: "Staatliches", sans-serif;
+}
+
+.ratinglist-data,
+.ratinglist-head {
+  border-top: 1px solid #000;
+}
+
+@media (max-width: 767px) {
+  .rating-table {
+    margin: 20px 0;
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  .ratinglist-head {
+    font-size: 48px;
+  }
+
+  .ratingtable-header,
+  .ratinglist-data {
+    text-align: left;
+    border: 1px solid #000;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+      rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .ratingtable-header {
+    font-size: 18px;
+    font-weight: lighter;
+    text-decoration: underline;
+  }
+
+  table {
+    border-spacing: 0;
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+  }
+
+  .ratinglist-data {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+      rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .delete-btn {
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+  }
+
+  .ratingtable-btn {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    font-size: 50px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 999;
+  }
+}
