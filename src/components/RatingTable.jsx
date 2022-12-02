@@ -7,10 +7,15 @@ import {
   faTimes,
 } from "@fortawesome/fontawesome-free-solid";
 
+// Table pagination stuff
+import TableFooter from "./TableFooter";
+import useTable from "../hooks/useTable";
+
 import "../styles/ratingtable.css";
 import "../styles/ratingtablemodal.css";
 
-function RatingTable({ movieList }) {
+function RatingTable({ movieList, rowsPerPage }) {
+  // Local storage stuff
   const localMovie = localStorage.getItem("watchedMovies")
     ? JSON.parse(localStorage.getItem("watchedMovies"))
     : [];
@@ -21,11 +26,18 @@ function RatingTable({ movieList }) {
     const json = JSON.stringify(watchedMovies);
     window.localStorage.setItem("watchedMovies", json);
   }, [watchedMovies]);
+  /////////////////////////////
 
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
   const [rating, setRating] = useState();
   const [finished, setFinished] = useState(false);
+
+  // Table pagination
+  const [page, setPage] = useState(1);
+  const { slice, range } = useTable(watchedMovies, page, rowsPerPage);
+
+  //
 
   let handleMovieChange = (e) => {
     setMovieTitle(e.target.value);
@@ -47,6 +59,7 @@ function RatingTable({ movieList }) {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
+  // Handle new movie submit/uuid set up
   const uuid = require("uuid");
 
   const handleSubmit = (e) => {
@@ -74,7 +87,7 @@ function RatingTable({ movieList }) {
     setWatchedMovies(remainingMovies);
   };
 
-  // MODAL
+  // MODAL open/close states
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
@@ -90,8 +103,8 @@ function RatingTable({ movieList }) {
           {/* <caption className="ratinglist-head">Movie Night</caption> */}
           <thead>
             <tr>
-              <th className="ratingtable-header">Movie Title </th>
-              <th className="ratingtable-header">Date Watched</th>
+              <th className="ratingtable-header">Title </th>
+              <th className="ratingtable-header">Date</th>
               <th className="ratingtable-header">Rating</th>
               {/* <th className="ratingtable-header">Finished</th> */}
               <th className="ratingtable-header"></th>
@@ -99,7 +112,7 @@ function RatingTable({ movieList }) {
           </thead>
 
           <tbody>
-            {watchedMovies.map((movie) => (
+            {slice.map((movie) => (
               <tr key={movie.id}>
                 <td className="ratinglist-data">{movie.title}</td>
                 <td className="ratinglist-data">{movie.date}</td>
@@ -117,6 +130,12 @@ function RatingTable({ movieList }) {
             ))}
           </tbody>
         </table>
+        <TableFooter
+          range={range}
+          slice={slice}
+          setPage={setPage}
+          page={page}
+        />
       </div>
 
       {/* Rating table modal */}
@@ -127,7 +146,7 @@ function RatingTable({ movieList }) {
         <div className="rating-modal-content">
           <div className="rating-modal-header">
             <div className="rating-title">
-              <h2>Add your movie</h2>
+              <h2>Add movie</h2>
             </div>
           </div>
 
@@ -139,7 +158,7 @@ function RatingTable({ movieList }) {
                   <option value="">Select a movie</option>
                   {movieList.map((movie) => (
                     <option key={movie.name} value={movie.name}>
-                      {movie.name}
+                      {movie.name.toUpperCase()}
                     </option>
                   ))}
                 </select>
@@ -149,7 +168,7 @@ function RatingTable({ movieList }) {
                 <label htmlFor="rating">Rating:</label>
                 <select name="rating" id="rating" onChange={handleRatingChange}>
                   <option value="">Select rating</option>
-                  <option value="10">(10) Masterpiece</option>
+                  <option value="10/10 😎">(10) Masterpiece</option>
                   <option value="9">(9) Great</option>
                   <option value="8">(8) Very Good</option>
                   <option value="7">(7) Good</option>

@@ -51,11 +51,11 @@ table {
   color: #a6d0e4;
 }
 
-tr:nth-child(even) {
+.movielist-table table tr:nth-child(even) {
   background-color: #27496d;
 }
 
-tr:nth-child(odd) :not(.movielist-head) {
+.movielist-table table tr:nth-child(odd) :not(.movielist-head) {
   background-color: #a6d0e4;
 }
 

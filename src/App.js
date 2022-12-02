@@ -30,7 +30,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<RatingTable movieList={movieList} />} />
+          <Route
+            path="/"
+            element={<RatingTable movieList={movieList} rowsPerPage={5} />}
+          />
           <Route
             path="/list"
             element={

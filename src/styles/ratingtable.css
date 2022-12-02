@@ -53,19 +53,29 @@ table {
 
   .ratingtable-header,
   .ratinglist-data {
-    text-align: left;
+    text-align: center;
     border: 1px solid #000;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
       rgba(17, 17, 26, 0.1) 0px 0px 8px;
-    font-size: 18px;
     padding: 8px;
   }
 
   .ratingtable-header {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: lighter;
     text-decoration: underline;
+    padding: 10px;
+    color: #a6d0e4;
+    background-color: #182635;
+  }
+
+  .rating-table table tr:nth-child(even) {
+    background-color: #27496d;
+  }
+
+  .rating-table table tr:nth-child(odd) :not(.ratingtable-header) {
+    background-color: #a6d0e4;
   }
 
   table {
@@ -102,5 +112,10 @@ table {
     color: #fff;
     cursor: pointer;
     z-index: 999;
+  }
+
+  select option {
+    font-size: 14px;
+    font-weight: bolder;
   }
 }
