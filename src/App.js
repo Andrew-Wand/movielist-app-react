@@ -41,7 +41,7 @@ function App() {
                 movies={movies}
                 movieList={movieList}
                 setMovieList={setMovieList}
-                rowsPerPage={8}
+                rowsPerPage={6}
               />
             }
           />

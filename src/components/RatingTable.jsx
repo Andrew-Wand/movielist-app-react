@@ -100,7 +100,7 @@ function RatingTable({ movieList, rowsPerPage }) {
           <FontAwesomeIcon icon={faPlus} />
         </button>
         <table>
-          {/* <caption className="ratinglist-head">Movie Night</caption> */}
+          <caption className="ratinglist-head">Movie Ratings</caption>
           <thead>
             <tr>
               <th className="ratingtable-header">Title </th>
@@ -168,7 +168,7 @@ function RatingTable({ movieList, rowsPerPage }) {
                 <label htmlFor="rating">Rating:</label>
                 <select name="rating" id="rating" onChange={handleRatingChange}>
                   <option value="">Select rating</option>
-                  <option value="10/10 😎">(10) Masterpiece</option>
+                  <option value="😎10/10">(10) Masterpiece</option>
                   <option value="9">(9) Great</option>
                   <option value="8">(8) Very Good</option>
                   <option value="7">(7) Good</option>
@@ -177,7 +177,7 @@ function RatingTable({ movieList, rowsPerPage }) {
                   <option value="4">(4) Bad</option>
                   <option value="3">(3) Very Bad</option>
                   <option value="2">(2) Horrible</option>
-                  <option value="1">(1) Appalling</option>
+                  <option value="🥵(1/10)">(1) Appalling</option>
                 </select>
                 {/* <label htmlFor="finished">Finished</label> */}
                 {/* <input type="checkbox" onChange={handleFinishedChange} /> */}
