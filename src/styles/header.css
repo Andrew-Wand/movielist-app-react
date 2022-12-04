@@ -11,8 +11,21 @@ header {
 .header-title h1 {
   font-family: "Dancing Script", sans-serif;
   text-decoration: underline;
-  font-size: 72px;
+  font-size: 74px;
   color: #f6f6f6;
+  margin-bottom: 2px;
+  position: relative;
+  z-index: 2;
+  word-spacing: 45px;
+}
+
+.header-icon {
+  position: absolute;
+  z-index: 1;
+  font-size: 60px;
+  right: 48.7%;
+  top: 15%;
+  color: #388cb3;
 }
 
 @media (max-width: 767px) {
@@ -30,7 +43,6 @@ header {
 
   .header-icon {
     position: absolute;
-    /* transform: rotate(25deg); */
     z-index: 1;
     font-size: 60px;
     right: 44%;

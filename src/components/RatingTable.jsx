@@ -73,7 +73,7 @@ function RatingTable({ movieList, rowsPerPage }) {
       finished: finished,
     };
     addWatchedMovie(movie);
-    handleClose();
+    handleAddClose();
     e.target.reset();
   };
 
@@ -87,16 +87,16 @@ function RatingTable({ movieList, rowsPerPage }) {
     setWatchedMovies(remainingMovies);
   };
 
-  // MODAL open/close states
-  const [show, setShow] = useState(false);
+  // MODAL ADD MOVIE open/close states
+  const [showAdd, setShowAdd] = useState(false);
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const handleAddShow = () => setShowAdd(true);
+  const handleAddClose = () => setShowAdd(false);
 
   return (
     <div className="rating-table-container">
       <div className="rating-table">
-        <button className="ratingtable-btn" onClick={handleShow}>
+        <button className="ratingtable-btn" onClick={handleAddShow}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
         <table>
@@ -141,7 +141,10 @@ function RatingTable({ movieList, rowsPerPage }) {
       {/* Rating table modal */}
       <div
         className="rating-modal-container"
-        style={{ opacity: show ? "1" : "0", display: show ? "block" : "none" }}
+        style={{
+          opacity: showAdd ? "1" : "0",
+          display: showAdd ? "block" : "none",
+        }}
       >
         <div className="rating-modal-content">
           <div className="rating-modal-header">
@@ -153,8 +156,13 @@ function RatingTable({ movieList, rowsPerPage }) {
           <div className="rating-modal-body">
             <div className="rating-modal-form">
               <form onSubmit={handleSubmit}>
-                <label htmlFor="movies">Choose a movie:</label>
-                <select name="movies" id="movies" onChange={handleMovieChange}>
+                <label htmlFor="movies">Choose a movie</label>
+                <select
+                  name="movies"
+                  id="movies"
+                  onChange={handleMovieChange}
+                  size="3"
+                >
                   <option value="">Select a movie</option>
                   {movieList.map((movie) => (
                     <option key={movie.name} value={movie.name}>
@@ -162,22 +170,27 @@ function RatingTable({ movieList, rowsPerPage }) {
                     </option>
                   ))}
                 </select>
-                <label htmlFor="date">Date:</label>
+                <label htmlFor="date">Date</label>
                 <input type="date" onChange={handleDateChange} />
 
-                <label htmlFor="rating">Rating:</label>
-                <select name="rating" id="rating" onChange={handleRatingChange}>
+                <label htmlFor="rating">Rating</label>
+                <select
+                  name="rating"
+                  id="rating"
+                  onChange={handleRatingChange}
+                  size="3"
+                >
                   <option value="">Select rating</option>
-                  <option value="😎10/10">(10) Masterpiece</option>
-                  <option value="9">(9) Great</option>
-                  <option value="8">(8) Very Good</option>
-                  <option value="7">(7) Good</option>
-                  <option value="6">(6) Fine</option>
-                  <option value="5">(5) Average</option>
-                  <option value="4">(4) Bad</option>
-                  <option value="3">(3) Very Bad</option>
-                  <option value="2">(2) Horrible</option>
-                  <option value="🥵(1/10)">(1) Appalling</option>
+                  <option value="😎">(10) Masterpiece</option>
+                  <option value="🤩">(9) Great</option>
+                  <option value="😁">(8) Very Good</option>
+                  <option value="😃">(7) Good</option>
+                  <option value="🙂">(6) Fine</option>
+                  <option value="😐">(5) Average</option>
+                  <option value="🤔">(4) Bad</option>
+                  <option value="😕">(3) Very Bad</option>
+                  <option value="☹️">(2) Horrible</option>
+                  <option value="😴">(1) Appalling</option>
                 </select>
                 {/* <label htmlFor="finished">Finished</label> */}
                 {/* <input type="checkbox" onChange={handleFinishedChange} /> */}
@@ -186,7 +199,7 @@ function RatingTable({ movieList, rowsPerPage }) {
             </div>
           </div>
           <div className="rating-modal-footer">
-            <button onClick={handleClose}>
+            <button onClick={handleAddClose}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>

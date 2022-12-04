@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<RatingTable movieList={movieList} rowsPerPage={5} />}
+            element={<RatingTable movieList={movieList} rowsPerPage={7} />}
           />
           <Route
             path="/list"
