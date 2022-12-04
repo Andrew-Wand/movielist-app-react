@@ -65,9 +65,9 @@ table {
 }
 
 .movielist-addbtn {
-  position: absolute;
-  bottom: 70%;
-  right: 32.4%;
+  /* position: absolute; */
+  bottom: 88%;
+  right: 4%;
   font-size: 48px;
   background: transparent;
   border: none;

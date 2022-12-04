@@ -18,12 +18,10 @@
 
 @media (max-width: 767px) {
   .wheel-container canvas {
-    height: 200%;
-    width: 160%;
-    font-size: 22px;
-    margin-top: 75px;
+    height: 100%;
+    width: 150%;
+    transform: translateX(-3%);
     color: #fff;
-    margin-left: 10px;
   }
 
   .wheel-text {

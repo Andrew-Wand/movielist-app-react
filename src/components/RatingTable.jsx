@@ -94,11 +94,14 @@ function RatingTable({ movieList, rowsPerPage }) {
   const handleAddClose = () => setShowAdd(false);
 
   return (
-    <div className="rating-table-container">
-      <div className="rating-table">
-        <button className="ratingtable-btn" onClick={handleAddShow}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
+    <div className="rating-table-container ">
+      <button
+        className="ratingtable-btn animate__animated animate__fadeInUp "
+        onClick={handleAddShow}
+      >
+        <FontAwesomeIcon icon={faPlus} />
+      </button>
+      <div className="rating-table animate__animated animate__slideInLeft ">
         <table>
           <caption className="ratinglist-head">Movie Ratings</caption>
           <thead>

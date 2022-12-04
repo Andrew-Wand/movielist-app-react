@@ -33,7 +33,10 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
   return (
     <div className="movielist-container">
       <div className="addbtn-container">
-        <button className="movielist-addbtn" onClick={handleShow}>
+        <button
+          className="movielist-addbtn animate__animated animate__fadeInUp"
+          onClick={handleShow}
+        >
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
@@ -48,7 +51,7 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
       />
 
       {/* Table for movies */}
-      <div className="movielist-table animate__animated animate__slideInLeft ">
+      <div className="movielist-table animate__animated animate__slideInLeft">
         <table>
           <thead>
             <tr>

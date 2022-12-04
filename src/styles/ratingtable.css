@@ -7,19 +7,33 @@
 
 .rating-table {
   display: flex;
-  width: 90%;
+  width: 40%;
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   overflow: hidden;
   border-radius: 10px;
+  margin: 40px 0;
+  overflow: hidden;
+  flex-direction: column;
 }
 
 .ratinglist-head {
   background-color: #182635;
-  font-size: 30px;
+  font-size: 48px;
   font-family: "Staatliches", sans-serif;
   color: #a6d0e4;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.ratingtable-header {
+  font-size: 26px;
+  font-weight: lighter;
+  text-decoration: underline;
+  padding: 15px;
+  color: #a6d0e4;
+  background-color: #182635;
+  text-align: center;
+  border: 1px solid #000;
 }
 
 table {
@@ -33,19 +47,58 @@ table {
 .ratinglist-data,
 .ratingtable-header {
   font-family: "Staatliches", sans-serif;
+  text-align: center;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  padding: 15px;
 }
 
 .ratinglist-data,
 .ratinglist-head {
   border-top: 1px solid #000;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 15px;
+}
+
+.ratinglist-data {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  font-size: 22px;
+  padding: 13px;
+}
+
+.delete-btn {
+  font-size: 25px;
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.ratingtable-btn {
+  /* position: absolute; */
+  bottom: 72%;
+  right: 8%;
+  font-size: 50px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.rating-table table tr:nth-child(even) {
+  background-color: #27496d;
+}
+
+.rating-table table tr:nth-child(odd) :not(.ratingtable-header) {
+  background-color: #a6d0e4;
 }
 
 @media (max-width: 767px) {
   .rating-table {
-    margin: 40px 0;
-    overflow: hidden;
-    flex-direction: column;
+    width: 90%;
   }
 
   .ratinglist-head {
@@ -69,14 +122,6 @@ table {
     background-color: #182635;
     text-align: center;
     border: 1px solid #000;
-  }
-
-  .rating-table table tr:nth-child(even) {
-    background-color: #27496d;
-  }
-
-  .rating-table table tr:nth-child(odd) :not(.ratingtable-header) {
-    background-color: #a6d0e4;
   }
 
   table {
