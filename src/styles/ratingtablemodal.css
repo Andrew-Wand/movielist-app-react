@@ -12,10 +12,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    height: 50%;
+    height: 70%;
     width: 90%;
     background-color: #182635;
     border-radius: 10px;
@@ -29,13 +29,13 @@
   .rating-modal-header {
     font-family: "Staatliches", sans-serif;
     color: #a6d0e4;
-    font-size: 32px;
-    margin: 40px 15px 15px 15px;
+    font-size: 30px;
+    margin: 30px 15px 15px 15px;
     text-decoration: underline;
   }
 
   .rating-modal-body {
-    padding: 20px;
+    padding: 10px;
   }
 
   .rating-modal-form select,
@@ -57,7 +57,7 @@
     background-color: #388cb3;
     transition: background-color 0.3s;
     font-family: "Staatliches", sans-serif;
-    margin-top: 16px;
+    margin-top: 50px;
   }
 
   .rating-modal-form input[type="submit"]:hover {
@@ -72,8 +72,9 @@
   .rating-modal-form label {
     color: #fff;
     font-family: "Staatliches", sans-serif;
-    margin: 7px 0;
-    font-size: 18px;
+    margin: 13px 0;
+    font-size: 24px;
+    text-align: center;
   }
 
   .rating-modal-footer button {
@@ -86,5 +87,25 @@
     background-color: transparent;
     color: #fff;
     margin: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .rating-modal-form label {
+    margin: 10px 0;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .rating-modal-header {
+    font-size: 25px;
+    margin: 20px 15px 15px 15px;
+  }
+  .rating-modal-content {
+    height: auto;
+  }
+
+  .rating-modal-form input[type="submit"] {
+    margin-top: 40px;
   }
 }
