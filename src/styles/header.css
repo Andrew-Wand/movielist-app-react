@@ -1,6 +1,6 @@
 header {
   background-color: #182635;
-  height: 150px;
+  height: 180px;
 }
 
 .header-content {
@@ -48,9 +48,6 @@ header {
     right: 44%;
     top: 15%;
     color: #388cb3;
-  }
-
-  .header-content {
   }
 }
 

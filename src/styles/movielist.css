@@ -7,11 +7,15 @@
 
 .movielist-table {
   display: flex;
-  width: 90%;
+  width: 40%;
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   overflow: hidden;
   border-radius: 10px;
+  flex-direction: column;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
 }
 
 table {
@@ -27,6 +31,7 @@ table {
   flex-direction: row;
   justify-content: space-between;
   font-family: "Staatliches", sans-serif;
+  font-size: 28px;
 }
 
 .movielist-data,
@@ -36,7 +41,7 @@ table {
 }
 
 .delete-btn {
-  font-size: 20px;
+  font-size: 30px;
   background: transparent;
   border: none;
   color: rgba(0, 0, 0, 0.7);
@@ -45,7 +50,7 @@ table {
 
 .movielist-head {
   background-color: #182635;
-  font-size: 30px;
+  font-size: 48px;
   font-family: "Staatliches", sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   color: #a6d0e4;
@@ -57,6 +62,23 @@ table {
 
 .movielist-table table tr:nth-child(odd) :not(.movielist-head) {
   background-color: #a6d0e4;
+}
+
+.movielist-addbtn {
+  position: absolute;
+  bottom: 70%;
+  right: 32.4%;
+  font-size: 48px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Animation */
+.animate__animated.animate__slideInLeft {
+  --animate-duration: 0.6s;
 }
 
 @media (max-width: 767px) {

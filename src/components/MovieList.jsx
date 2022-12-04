@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MovieListModal from "./MovieListModal";
 import "../styles/movielist.css";
+import "animate.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faPlus } from "@fortawesome/fontawesome-free-solid";
@@ -47,7 +48,7 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
       />
 
       {/* Table for movies */}
-      <div className="movielist-table">
+      <div className="movielist-table animate__animated animate__slideInLeft ">
         <table>
           <thead>
             <tr>

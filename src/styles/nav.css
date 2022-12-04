@@ -7,14 +7,63 @@
 
 .nav-content a {
   text-decoration: none;
+  padding: 20px;
 }
 
 .nav-link {
+  position: relative;
+  background-color: transparent;
+  /* border: 2px solid #2e9bcd; */
+  line-height: 1.9em;
+  font-size: 26px;
+  /* height: 45px; */
+  width: 120px;
+  text-align: center;
+  color: #fff;
+  margin: 0 50px;
+  /* border-radius: 10px; */
+  z-index: 999;
+  opacity: 1;
+  font-family: "Staatliches", sans-serif;
+  display: inline-block;
 }
 
 .active {
-  background-color: #000;
+  /* color: #fff;
+  transition: opacity 0.6s;*/
+  display: inline-block;
+  position: relative;
   color: #fff;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(1);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 @media (max-width: 767px) {
@@ -33,7 +82,7 @@
     text-align: center;
     color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 -10px;
     border-radius: 10px;
     z-index: 999;
     font-family: "Staatliches", sans-serif;
@@ -43,6 +92,21 @@
     background-color: #388cb3;
     color: #000;
     transition: background-color 0.6s;
+  }
+  .active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+  }
+  .nav-link:hover:after {
+    transform: scaleX(0);
+    transform-origin: bottom left;
   }
 }
 
