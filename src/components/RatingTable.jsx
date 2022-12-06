@@ -200,16 +200,16 @@ function RatingTable({ movieList, rowsPerPage }) {
                   size="3"
                 >
                   <option value="">Select rating</option>
-                  <option value="😎">(10) Masterpiece</option>
-                  <option value="🤩">(9) Great</option>
-                  <option value="😁">(8) Very Good</option>
-                  <option value="😃">(7) Good</option>
-                  <option value="🙂">(6) Fine</option>
-                  <option value="😐">(5) Average</option>
-                  <option value="🤔">(4) Bad</option>
-                  <option value="😕">(3) Very Bad</option>
-                  <option value="☹️">(2) Horrible</option>
-                  <option value="😴">(1) Appalling</option>
+                  <option value="😎 ">(10) Masterpiece</option>
+                  <option value="🤩 ">(9) Great</option>
+                  <option value="😁 ">(8) Very Good</option>
+                  <option value="😃 ">(7) Good</option>
+                  <option value="🙂 ">(6) Fine</option>
+                  <option value="😐 ">(5) Average</option>
+                  <option value="🤔 ">(4) Bad</option>
+                  <option value="😕 ">(3) Very Bad</option>
+                  <option value="☹️ ">(2) Horrible</option>
+                  <option value="😴 ">(1) Appalling</option>
                 </select>
                 {/* <label htmlFor="finished">Finished</label> */}
                 {/* <input type="checkbox" onChange={handleFinishedChange} /> */}
