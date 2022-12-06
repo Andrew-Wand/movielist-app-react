@@ -28,7 +28,6 @@
 .ratingtable-header {
   font-size: 26px;
   font-weight: lighter;
-  text-decoration: underline;
   padding: 15px;
   color: #a6d0e4;
   background-color: #182635;
@@ -80,12 +79,14 @@ table {
   /* position: absolute; */
   bottom: 72%;
   right: 8%;
-  font-size: 50px;
+  font-size: 40px;
   background: transparent;
   border: none;
   color: #fff;
   cursor: pointer;
   z-index: 999;
+  margin-top: 10px;
+  margin-bottom: -20px;
 }
 
 .rating-table table tr:nth-child(even) {
@@ -116,7 +117,6 @@ table {
   .ratingtable-header {
     font-size: 20px;
     font-weight: lighter;
-    text-decoration: underline;
     padding: 15px;
     color: #a6d0e4;
     background-color: #182635;

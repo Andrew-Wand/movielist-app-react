@@ -62,9 +62,8 @@ function RatingTable({ movieList, rowsPerPage }) {
   // Handle new movie submit/uuid set up
   const uuid = require("uuid");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  // validation for adding movie to rating table
+  const formValidation = () => {
     const movie = {
       id: uuid.v4(),
       title: movieTitle,
@@ -72,8 +71,25 @@ function RatingTable({ movieList, rowsPerPage }) {
       rating: rating,
       finished: finished,
     };
-    addWatchedMovie(movie);
-    handleAddClose();
+
+    if (
+      movieTitle === "Select a movie" ||
+      date === "" ||
+      rating === undefined
+    ) {
+      alert("You must complete form to add movie");
+    } else {
+      addWatchedMovie(movie);
+      handleAddClose();
+      setMovieTitle("Select a movie");
+      setDate("");
+      setRating();
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    formValidation();
     e.target.reset();
   };
 
@@ -96,7 +112,7 @@ function RatingTable({ movieList, rowsPerPage }) {
   return (
     <div className="rating-table-container ">
       <button
-        className="ratingtable-btn animate__animated animate__fadeInUp "
+        className="ratingtable-btn animate__animated animate__fadeInDown "
         onClick={handleAddShow}
       >
         <FontAwesomeIcon icon={faPlus} />

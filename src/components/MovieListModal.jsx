@@ -11,12 +11,19 @@ function MovieListModal({
   setShow,
   show,
 }) {
+  const formValidaiton = () => {
+    if (movieName === "") {
+      alert("Must enter a movie name.");
+    } else {
+      setMovieList((current) => [movieName, ...current]);
+      handleClose();
+    }
+  };
   // Handle submit for new movie
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMovieList((current) => [...current, movieName]);
     e.target.reset();
-    handleClose();
+    formValidaiton();
   };
 
   // // Create New Id for each added to array

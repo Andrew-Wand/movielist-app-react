@@ -17,6 +17,7 @@ header {
   position: relative;
   z-index: 2;
   word-spacing: 45px;
+  cursor: default;
 }
 
 .header-icon {

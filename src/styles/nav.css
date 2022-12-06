@@ -7,7 +7,8 @@
 
 .nav-content a {
   text-decoration: none;
-  padding: 20px;
+  /* padding: 20px; */
+  margin: 20px 75px 0px 75px;
 }
 
 .nav-link {
@@ -20,7 +21,6 @@
   width: 120px;
   text-align: center;
   color: #fff;
-  margin: 0 50px;
   /* border-radius: 10px; */
   z-index: 999;
   opacity: 1;
@@ -107,6 +107,11 @@
   .nav-link:hover:after {
     transform: scaleX(0);
     transform-origin: bottom left;
+  }
+
+  .nav-content a {
+    padding: 20px;
+    margin: 0px;
   }
 }
 

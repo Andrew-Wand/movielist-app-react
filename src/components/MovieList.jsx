@@ -34,7 +34,7 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
     <div className="movielist-container">
       <div className="addbtn-container">
         <button
-          className="movielist-addbtn animate__animated animate__fadeInUp"
+          className="movielist-addbtn animate__animated animate__fadeInDown"
           onClick={handleShow}
         >
           <FontAwesomeIcon icon={faPlus} />
