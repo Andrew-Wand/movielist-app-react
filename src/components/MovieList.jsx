@@ -8,7 +8,6 @@ import { faTrashAlt, faPlus } from "@fortawesome/fontawesome-free-solid";
 
 // Table pagination stuff
 import useTable from "../hooks/useTable";
-import styles from "../styles/TableFooter.module.css";
 import TableFooter from "./TableFooter";
 
 function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {

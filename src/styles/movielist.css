@@ -121,18 +121,6 @@ table {
     font-size: 48px;
   }
 
-  /* .movielist-data h3::before {
-    content: "";
-    margin-right: 20px;
-    -moz-border-radius: 7.5px;
-    -webkit-border-radius: 7.5px;
-    border-radius: 7.5px;
-    background-color: rgba(0, 0, 0, 0.7);
-    height: 15px;
-    width: 15px;
-    display: inline-block;
-  } */
-
   .movielist-addbtn {
     position: fixed;
     bottom: 5%;

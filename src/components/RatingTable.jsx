@@ -26,12 +26,11 @@ function RatingTable({ movieList, rowsPerPage }) {
     const json = JSON.stringify(watchedMovies);
     window.localStorage.setItem("watchedMovies", json);
   }, [watchedMovies]);
-  /////////////////////////////
 
+  // Hooks
   const [movieTitle, setMovieTitle] = useState("Select a movie");
   const [date, setDate] = useState("");
   const [rating, setRating] = useState();
-  const [finished, setFinished] = useState(false);
 
   // Table pagination
   const [page, setPage] = useState(1);
@@ -51,10 +50,6 @@ function RatingTable({ movieList, rowsPerPage }) {
     setRating(e.target.value);
   };
 
-  // let handleFinishedChange = (e) => {
-  //   setFinished(e.target.checked);
-  // };
-
   const addWatchedMovie = (watchedMovie) => {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
@@ -69,7 +64,6 @@ function RatingTable({ movieList, rowsPerPage }) {
       title: movieTitle,
       date: date,
       rating: rating,
-      finished: finished,
     };
 
     if (
@@ -125,7 +119,6 @@ function RatingTable({ movieList, rowsPerPage }) {
               <th className="ratingtable-header">Title </th>
               <th className="ratingtable-header">Date</th>
               <th className="ratingtable-header">Rating</th>
-              {/* <th className="ratingtable-header">Finished</th> */}
               <th className="ratingtable-header"></th>
             </tr>
           </thead>
@@ -136,7 +129,6 @@ function RatingTable({ movieList, rowsPerPage }) {
                 <td className="ratinglist-data">{movie.title}</td>
                 <td className="ratinglist-data">{movie.date}</td>
                 <td className="ratinglist-data">{movie.rating}</td>
-                {/* <td className="ratinglist-data">{movie.finished.toString()}</td> */}
                 <td className="ratinglist-data">
                   <button
                     className="delete-btn"
@@ -211,8 +203,6 @@ function RatingTable({ movieList, rowsPerPage }) {
                   <option value="☹️ ">(2) Horrible</option>
                   <option value="😴 ">(1) Appalling</option>
                 </select>
-                {/* <label htmlFor="finished">Finished</label> */}
-                {/* <input type="checkbox" onChange={handleFinishedChange} /> */}
                 <input type="submit" value="Submit" />
               </form>
             </div>

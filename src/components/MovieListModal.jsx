@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/fontawesome-free-solid";
 
 function MovieListModal({
-  movies,
   movieName,
-  movieList,
   setMovieName,
   setMovieList,
   setShow,
@@ -25,14 +23,6 @@ function MovieListModal({
     e.target.reset();
     formValidaiton();
   };
-
-  // // Create New Id for each added to array
-  // let lastId = Math.max.apply(
-  //   null,
-  //   movieList.map((item) => item.id)
-  // );
-
-  // let newId = lastId + 1;
 
   const uuid = require("uuid");
 
