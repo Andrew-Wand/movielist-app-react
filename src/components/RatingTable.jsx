@@ -89,12 +89,14 @@ function RatingTable({ movieList, rowsPerPage }) {
 
   // Delete movie from list
   const handleDelete = (id) => {
-    const remainingMovies = watchedMovies.filter((movie) => movie.id !== id);
-    window.localStorage.setItem(
-      "watchedMovies",
-      JSON.stringify(remainingMovies)
-    );
-    setWatchedMovies(remainingMovies);
+    if (window.confirm("Are you sure you want to delete?")) {
+      const remainingMovies = watchedMovies.filter((movie) => movie.id !== id);
+      window.localStorage.setItem(
+        "watchedMovies",
+        JSON.stringify(remainingMovies)
+      );
+      setWatchedMovies(remainingMovies);
+    }
   };
 
   // MODAL ADD MOVIE open/close states

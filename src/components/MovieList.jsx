@@ -24,9 +24,11 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
   //
 
   const deleteMovie = (id) => {
-    const remainingMovies = movieList.filter((movie) => id !== movie.id);
-    window.localStorage.setItem("movieList", JSON.stringify(remainingMovies));
-    setMovieList(remainingMovies);
+    if (window.confirm("Are you sure you want to delete?")) {
+      const remainingMovies = movieList.filter((movie) => id !== movie.id);
+      window.localStorage.setItem("movieList", JSON.stringify(remainingMovies));
+      setMovieList(remainingMovies);
+    }
   };
 
   return (
