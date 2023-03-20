@@ -4,25 +4,43 @@ import "../styles/movielist.css";
 import "animate.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faPlus } from "@fortawesome/fontawesome-free-solid";
+import {
+  faTrashAlt,
+  faPlus,
+  faEdit,
+} from "@fortawesome/fontawesome-free-solid";
 
 // Table pagination stuff
 import useTable from "../hooks/useTable";
 import TableFooter from "./TableFooter";
 
 function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
+  // State for input name
   const [movieName, setMovieName] = useState("");
 
+  // Show modal
   const [show, setShow] = useState(false);
-
   const handleShow = () => setShow(true);
 
   // Table pagination
   const [page, setPage] = useState(1);
   const { slice, range } = useTable(movieList, page, rowsPerPage);
 
-  //
+  // Edit state
+  const [movieEdit, setMovieEdit] = useState({
+    item: {},
+    edit: false,
+  });
 
+  // Set item to be updated
+  const editMovie = (item) => {
+    setMovieEdit({
+      item,
+      edit: true,
+    });
+  };
+
+  // Delete movie function
   const deleteMovie = (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
       const remainingMovies = movieList.filter((movie) => id !== movie.id);
@@ -70,6 +88,9 @@ function MovieList({ movies, movieList, setMovieList, rowsPerPage }) {
                     onClick={() => deleteMovie(movie.id)}
                   >
                     <FontAwesomeIcon icon={faTrashAlt} />
+                  </button>
+                  <button className="edit-btn" onClick={() => editMovie()}>
+                    <FontAwesomeIcon icon={faEdit} />
                   </button>
                 </td>
               </tr>

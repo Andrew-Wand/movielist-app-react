@@ -48,6 +48,14 @@ table {
   cursor: pointer;
 }
 
+.edit-btn {
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
 .movielist-head {
   background-color: #182635;
   font-size: 48px;
